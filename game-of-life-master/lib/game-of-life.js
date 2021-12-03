@@ -296,3 +296,35 @@ assert(automaton([
 [0,1,0,1,0],
 [0,0,1,0,0],
 ]);;
+
+
+cells = [
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 1, 1, 1, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+];
+
+function displayCells(cells) {
+    for (rIndex = 0; rIndex < cells.length; rIndex++) {
+        let row = cells[rIndex];
+        console.log(row.join(""))
+    }
+}
+
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+
+async function gameOfLife(runs) {
+    for (iterations = 0; iterations < runs; iterations++) {
+        console.log('\033[0;0H');// reset to line 0, col 0
+
+        displayCells(cells);
+        cells = automaton(cells);
+
+        await delay(1000)
+    }
+}
+
+gameOfLife(10)
+
