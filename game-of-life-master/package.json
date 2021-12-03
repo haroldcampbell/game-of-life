@@ -1,0 +1,9 @@
+{
+    "name": "@runkit/haroldcampbell_game-of-life",
+    "version": "0.0.0-master",
+    "main": "./lib/game-of-life",
+    "dependencies": {},
+    "scripts": {
+        "install": "node scripts/install.js"
+    }
+}
